@@ -28,7 +28,7 @@ app.MapPost("/cadastro", async (NpgsqlDataSource db, Usuario usuario) =>
         usuario.Senha
     });
 
-    return Results.StatusCode(201);
+    return Results.Created();
 });
 
 app.MapPost("/criarpergunta", async (NpgsqlDataSource db, Pergunta pergunta) =>
@@ -44,7 +44,7 @@ app.MapPost("/criarpergunta", async (NpgsqlDataSource db, Pergunta pergunta) =>
         pergunta.Id_usua
     });
 
-    return Results.StatusCode(201);
+    return Results.Created();
 });
 
 app.MapPost("/criarresposta", async (NpgsqlDataSource db, Resposta resposta) =>
@@ -59,7 +59,7 @@ app.MapPost("/criarresposta", async (NpgsqlDataSource db, Resposta resposta) =>
         resposta.Id_perg
     });
 
-    return Results.StatusCode(201);
+    return Results.Created();
 });
 
 app.Run("http://0.0.0.0:5165");
