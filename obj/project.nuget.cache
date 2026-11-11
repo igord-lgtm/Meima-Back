@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "ihWL9huVHR4=",
+  "dgSpecHash": "zmY671Sat/U=",
   "success": true,
   "projectFilePath": "C:\\Users\\Igor\\Documents\\Meima\\MeimaBack\\MeimaBack.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Igor\\.nuget\\packages\\dapper\\2.1.89\\dapper.2.1.89.nupkg.sha512",
     "C:\\Users\\Igor\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.14\\microsoft.aspnetcore.openapi.10.0.14.nupkg.sha512",
-    "C:\\Users\\Igor\\.nuget\\packages\\microsoft.openapi\\2.12.2\\microsoft.openapi.2.12.2.nupkg.sha512"
+    "C:\\Users\\Igor\\.nuget\\packages\\microsoft.openapi\\2.12.2\\microsoft.openapi.2.12.2.nupkg.sha512",
+    "C:\\Users\\Igor\\.nuget\\packages\\npgsql\\10.0.3\\npgsql.10.0.3.nupkg.sha512"
   ],
   "logs": []
 }
