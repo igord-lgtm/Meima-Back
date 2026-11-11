@@ -10,7 +10,6 @@ builder.Services.AddCors(options =>
     policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 });
 
-// Pool de conexões único para a aplicação
 var connStr = builder.Configuration.GetConnectionString("Default");
 
 builder.Services.AddSingleton(NpgsqlDataSource.Create(connStr!));
@@ -18,7 +17,7 @@ builder.Services.AddSingleton(NpgsqlDataSource.Create(connStr!));
 var app = builder.Build();
 app.UseCors();
 
-app.MapPost("/criarusuario", async (NpgsqlDataSource db, Usuario usuario) =>
+app.MapPost("/cadastro", async (NpgsqlDataSource db, Usuario usuario) =>
 {
     var sql = "insert into usuarios (nome_usua, senha_usua) values(@Nome, @Senha)";
     await using var conn = await db.OpenConnectionAsync();
@@ -27,6 +26,37 @@ app.MapPost("/criarusuario", async (NpgsqlDataSource db, Usuario usuario) =>
     {
         usuario.Nome,
         usuario.Senha
+    });
+
+    return Results.StatusCode(201);
+});
+
+app.MapPost("/criarpergunta", async (NpgsqlDataSource db, Pergunta pergunta) =>
+{
+    var sql = "insert into perguntas (titulo_perg, descricao_perg, materia_perg, id_usua) values (@Titulo, @Descricao, @Materia, @Id_usua)";
+    await using var conn = await db.OpenConnectionAsync();
+
+    await conn.ExecuteAsync(sql, new
+    {
+        pergunta.Titulo,
+        pergunta.Descricao,
+        pergunta.Materia,
+        pergunta.Id_usua
+    });
+
+    return Results.StatusCode(201);
+});
+
+app.MapPost("/criarresposta", async (NpgsqlDataSource db, Resposta resposta) =>
+{
+    var sql = "insert into respostas (descricao_resp, id_usua, id_perg) values (@Descricao, @Id_usua, @Id_perg)";
+    await using var conn = await db.OpenConnectionAsync();
+
+    await conn.ExecuteAsync(sql, new
+    {
+        resposta.Descricao,
+        resposta.Id_usua,
+        resposta.Id_perg
     });
 
     return Results.StatusCode(201);
