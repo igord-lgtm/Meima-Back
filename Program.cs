@@ -19,13 +19,12 @@ app.UseCors();
 
 app.MapPost("/cadastro", async (NpgsqlDataSource db, Usuario usuario) =>
 {
-    var sql = "insert into usuarios (nome_usua, senha_usua) values(@Email, @Nome, @Senha)";
+    var sql = "insert into usuarios (email_usua, senha_usua) values(@Email, @Senha)";
     await using var conn = await db.OpenConnectionAsync();
 
     await conn.QueryAsync(sql, new
     {
         usuario.Email,
-        usuario.Nome,
         usuario.Senha
     });
 

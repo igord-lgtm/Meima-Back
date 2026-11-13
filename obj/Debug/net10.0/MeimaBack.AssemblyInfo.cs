@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MeimaBack")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5be9b462710d016869ae1d94384aba1fba1f0a1a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c7b03bb0302c3a3977dcde4e16053d580b81720f")]
 [assembly: System.Reflection.AssemblyProductAttribute("MeimaBack")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MeimaBack")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
